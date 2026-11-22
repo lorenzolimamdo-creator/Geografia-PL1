@@ -1,5 +1,4 @@
 
-
 const botao = document.getElementById("verificar-resposta");
 const resultado = document.getElementById("resultado-atividade");
 
@@ -9,6 +8,10 @@ const respostasCorretas = {
     q3: "a",
     q4: "b"
 };
+
+function conferirResposta(questao, resposta) {
+    return resposta.value === respostasCorretas[questao];
+}
 
 botao.addEventListener("click", () => {
     let acertos = 0;
@@ -22,7 +25,7 @@ botao.addEventListener("click", () => {
         if (resposta) {
             respondidas++;
 
-            if (resposta.value === respostasCorretas[questao]) {
+            if (conferirResposta(questao, resposta)) {
                 acertos++;
             }
         }
